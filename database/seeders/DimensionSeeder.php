@@ -2,8 +2,12 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Service;
+use App\Models\Hospital;
+use App\Models\HospitalService;
+use App\Models\ServiceCategory;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DimensionSeeder extends Seeder
 {
@@ -23,5 +27,95 @@ class DimensionSeeder extends Seeder
             ['name' => 'ultrasonografi'],
             ['name' => 'intensive care unit '],
         ];
+
+        $service = [
+            [
+                'service_category_id' => 1,
+                'name' => 'poli gigi',
+                'image' => 'poli_gigi.png',
+            ],
+            [
+                'service_category_id' => 1,
+                'name' => 'poli gizi',
+                'image' => 'poli_gizi.png',
+            ],
+            [
+                'service_category_id' => 1,
+                'name' => 'poli penyakit dalam',
+                'image' => 'poli_penyakit.png',
+            ],
+            [
+                'service_category_id' => 1,
+                'name' => 'poli bedah umum',
+                'image' => 'poli_bedah.png',
+            ],
+            [
+                'service_category_id' => 1,
+                'name' => 'poli mata',
+                'image' => 'poli_mata.png',
+            ],
+        ];
+
+        $hospitals = [
+            [
+                'name' => 'RSUP Dr. Wahidin Sudirohusodo',
+                'rate' => 5,
+                'reviewer' => 20,
+                'phone' => '(0411) 583333',
+                'address' => 'Jl. Perintis Kemerdekaan No.11\, Tamalanrea Jaya'
+            ],
+            [
+                'name' => 'RSUD Haji Makassar',
+                'rate' => 4,3,
+                'reviewer' => 20,
+                'phone' => '(0411) 856090',
+                'address' => 'Jl. Daeng Ngeppe No.14\, Balang Baru, Kec. Tamalate'
+            ],
+            [
+                'name' => 'RSUD Labuang Baji',
+                'rate' => 4,3,
+                'reviewer' => 20,
+                'phone' => '(0411) 873482',
+                'address' => 'Jl. Dr. Ratulangi No.81\, Labuang Baji\, Kec. Mamajang'
+            ],
+            [
+                'name' => 'RS Akademis Jaury',
+                'rate' => 4,3,
+                'reviewer' => 20,
+                'phone' => '(0411) 317343',
+                'address' => 'Jl. Jend. M. Jusuf No.57A, Pattunuang\, Kec. Wajo'
+            ],
+            [
+                'name' => 'RS Bhayangkara Makassar',
+                'rate' => 4,3,
+                'reviewer' => 20,
+                'phone' => '(0411) 317343',
+                'address' => 'Jl. Andi Mappaodang No.63\, Jongaya\, Kec. Tamalate'
+            ],
+        ];
+
+        $hospital_service = [
+            [
+                'service_category_id' => 1,
+                'hospital_category_id' => 1,
+            ],
+            [
+                'service_category_id' => 2,
+                'hospital_category_id' => 1,
+            ],
+            [
+                'service_category_id' => 3,
+                'hospital_category_id' => 1,
+            ],
+            [
+                'service_category_id' => 4,
+                'hospital_category_id' => 1,
+            ],
+        ];
+
+        ServiceCategory::insert($service_category);
+        Service::insert($service);
+        Hospital::insert($hospitals);
+        HospitalService::insert($hospital_service);
     }
 }
