@@ -62,54 +62,58 @@ class DimensionSeeder extends Seeder
                 'rate' => 5,
                 'reviewer' => 20,
                 'phone' => '(0411) 583333',
-                'address' => 'Jl. Perintis Kemerdekaan No.11\, Tamalanrea Jaya'
+                'address' => 'Jl. Perintis Kemerdekaan No.11 Tamalanrea Jaya'
             ],
             [
                 'name' => 'RSUD Haji Makassar',
-                'rate' => 4,3,
+                'rate' => 4.3,
                 'reviewer' => 20,
                 'phone' => '(0411) 856090',
-                'address' => 'Jl. Daeng Ngeppe No.14\, Balang Baru, Kec. Tamalate'
+                'address' => 'Jl. Daeng Ngeppe No.14 Balang Baru Kec. Tamalate'
             ],
             [
                 'name' => 'RSUD Labuang Baji',
-                'rate' => 4,3,
+                'rate' => 4.3,
                 'reviewer' => 20,
                 'phone' => '(0411) 873482',
-                'address' => 'Jl. Dr. Ratulangi No.81\, Labuang Baji\, Kec. Mamajang'
+                'address' => 'Jl. Dr. Ratulangi No.81 Labuang Baji Kec. Mamajang'
             ],
             [
                 'name' => 'RS Akademis Jaury',
-                'rate' => 4,3,
+                'rate' => 4.3,
                 'reviewer' => 20,
                 'phone' => '(0411) 317343',
-                'address' => 'Jl. Jend. M. Jusuf No.57A, Pattunuang\, Kec. Wajo'
+                'address' => 'Jl. Jend. M. Jusuf No.57A Pattunuang Kec. Wajo'
             ],
             [
                 'name' => 'RS Bhayangkara Makassar',
-                'rate' => 4,3,
+                'rate' => 4.3,
                 'reviewer' => 20,
                 'phone' => '(0411) 317343',
-                'address' => 'Jl. Andi Mappaodang No.63\, Jongaya\, Kec. Tamalate'
+                'address' => 'Jl. Andi Mappaodang No.63 Jongaya Kec. Tamalate'
             ],
         ];
 
         $hospital_service = [
             [
-                'service_category_id' => 1,
-                'hospital_category_id' => 1,
+                'service_id' => 1,
+                'hospital_id' => 1,
+                'rating' =>  2
             ],
             [
-                'service_category_id' => 2,
-                'hospital_category_id' => 1,
+                'service_id' => 2,
+                'hospital_id' => 1,
+                'rating' =>  4
             ],
             [
-                'service_category_id' => 3,
-                'hospital_category_id' => 1,
+                'service_id' => 3,
+                'hospital_id' => 1,
+                'rating' =>  3
             ],
             [
-                'service_category_id' => 4,
-                'hospital_category_id' => 1,
+                'service_id' => 4,
+                'hospital_id' => 1,
+                'rating' =>  5
             ],
         ];
 

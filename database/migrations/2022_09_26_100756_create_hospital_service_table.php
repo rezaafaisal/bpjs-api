@@ -13,9 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('hospital_services', function (Blueprint $table) {
+        Schema::create('hospital_service', function (Blueprint $table) {
             $table->foreignId('hospital_id');
             $table->foreignId('service_id');
+            $table->integer('rating')->nullable();
+            $table->bigInteger('reviewer')->nullable();
+            $table->bigInteger('star_1')->nullable();
+            $table->bigInteger('star_2')->nullable();
+            $table->bigInteger('star_3')->nullable();
+            $table->bigInteger('star_4')->nullable();
+            $table->bigInteger('star_5')->nullable();
             $table->primary(['hospital_id', 'service_id']);
         });
     }
