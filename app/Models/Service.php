@@ -13,7 +13,7 @@ class Service extends Model
         return $this->belongsToMany(Hospital::class);
     }
 
-    public function category(){
+    public function service_category(){
         return $this->belongsTo(ServiceCategory::class);
     }
 }

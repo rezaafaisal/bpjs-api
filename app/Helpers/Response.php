@@ -1,5 +1,5 @@
 <?php 
-namespace App\Helper;
+namespace App\Helpers;
 
 class Response {
    public static function reply($success, $code, $msg, $data = null){
@@ -10,6 +10,6 @@ class Response {
          'data' => $data
       ];
 
-      return response($data)->json();
+      return response()->json($data);
    }
 }
