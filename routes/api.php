@@ -19,5 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Route::get('/pengguna', )
+
 Route::get('rumah-sakit', [HospitalController::class, 'index']);
 Route::get('layanan', [HospitalController::class, 'service']);
