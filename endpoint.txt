@@ -1,0 +1,16 @@
+GET :
+- ambil data pengguna [http://127.0.0.1:8000/api/pengguna]
+- ambil data rumah sakit [http://127.0.0.1:8000/api/rumah-sakit]
+- ambil data layanan [http://127.0.0.1:8000/api/layanan]
+- ambil data dokter [http://127.0.0.1:8000/api/dokter]
+- ambil data waktu ketersediaan dokter [http://127.0.0.1:8000/api/dokter/waktu/{id_dokter}]
+- ambil data antrian pasien berdasarkan id [http://127.0.0.1:8000/api/antrian/{id_pasien}]
+
+
+POST :
+- tambah antrian pasien
+   [http://127.0.0.1:8000/api/antri/{patient_id}/{service_id}/{doctor_id}/{timetable_id}]
+
+PUT :
+- ubah status antrian menjadi selesai
+   [http://127.0.0.1:8000/api/antri/{id_antrian}]
