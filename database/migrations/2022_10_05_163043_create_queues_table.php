@@ -18,6 +18,10 @@ return new class extends Migration
             $table->foreignId('patient_id');
             $table->foreignId('doctor_id');
             $table->foreignId('timetable_id');
+            $table->foreignId('service_id');
+            $table->boolean('is_reviewed')->nullable()->default(false);
+            $table->enum('status', ['wait', 'pending', 'done', 'fail'])->default('wait');
+            $table->timestamps();
         });
     }
 

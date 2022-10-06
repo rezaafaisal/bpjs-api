@@ -16,4 +16,8 @@ class Service extends Model
     public function service_category(){
         return $this->belongsTo(ServiceCategory::class);
     }
+
+    public function queues(){
+        return $this->hasMany(Queues::class);
+    }
 }

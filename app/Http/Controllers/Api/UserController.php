@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function index(){
-        $data = Patient::all()->first();
-        if($data) return Response::reply(true, 200, 'Berhasil', $data);
+        $data = Patient::all();
+        if($data) return Response::reply(true, 200, 'Berhasil', $data, 'Data seluruh pasien');
 
         return Response::reply(false, 500, 'Gagal');
         

@@ -9,6 +9,8 @@ class Queue extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+    
     public function patient(){
         return $this->belongsTo(Patient::class);
     }
@@ -19,5 +21,9 @@ class Queue extends Model
 
     public function timetable(){
         return $this->belongsTo(Timetable::class);
+    }
+
+    public function service(){
+        return $this->belongsTo(Service::class);
     }
 }
