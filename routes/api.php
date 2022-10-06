@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\HospitalController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('/pengguna', )
+Route::get('pengguna', [UserController::class, 'index']);
 
 Route::get('rumah-sakit', [HospitalController::class, 'index']);
 Route::get('layanan', [HospitalController::class, 'service']);

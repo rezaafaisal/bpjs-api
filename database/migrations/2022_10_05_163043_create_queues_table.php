@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('patient_id');
             $table->foreignId('doctor_id');
-            $table->string('time');
+            $table->foreignId('timetable_id');
         });
     }
 

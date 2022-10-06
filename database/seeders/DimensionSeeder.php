@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Gender;
 use App\Models\Service;
 use App\Models\Hospital;
 use App\Models\HospitalService;
@@ -117,6 +118,12 @@ class DimensionSeeder extends Seeder
             ],
         ];
 
+        $gender = [
+            ['name' => 'laki laki'],
+            ['name' => 'perempuan'],
+        ];
+
+        Gender::insert($gender);
         ServiceCategory::insert($service_category);
         Service::insert($service);
         Hospital::insert($hospitals);

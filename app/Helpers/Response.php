@@ -10,6 +10,6 @@ class Response {
          'data' => $data
       ];
 
-      return response()->json($data);
+      return response()->json($data, $code);
    }
 }
