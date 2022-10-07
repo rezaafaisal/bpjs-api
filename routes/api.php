@@ -30,3 +30,4 @@ Route::get('antrian/{patient_id}', [HospitalController::class, 'queues']);
 
 Route::post('antri/{patient_id}/{service_id}/{doctor_id}/{timetable_id}', [HospitalController::class, 'addQueue']);
 Route::put('antri/{queue_id}', [HospitalController::class, 'doneQueue']);
+

@@ -75,7 +75,11 @@ class HospitalController extends Controller
             'service_id' => $service_id,
         ]);
 
-        if(!$queue) return Response::reply(false, 500, 'Gagal');
+        // mengurangi kuota
+        $timetable = Timetable::where('id', $timetable_id)->update(['quota' => Timetable::find($timetable_id)->quota - 1]);
+
+        if(!$queue || !$timetable) return Response::reply(false, 500, 'Gagal');
+
         return Response::reply(true, 200, 'Data antrian '.Patient::find($patient_id)->name.' berhasil ditambahkan', $queue);
         
     }
