@@ -22,7 +22,7 @@ class HospitalController extends Controller
     public function service(){
         $data = Service::all()->map(function($row){
             return [
-                'id' => $row->id,
+                'id' => str($row->id)->toString(),
                 'name' => $row->name,
                 'image' => $row->image,
                 'image_url' => asset('image/services/'.$row->image),
@@ -51,7 +51,7 @@ class HospitalController extends Controller
         $patient = Patient::find($patient_id);
         $data = Queue::where('patient_id', $patient_id)->get()->map(function($row){
             return [
-                'id' => $row->id,
+                'id' => str($row->id)->toString(),
                 'layanan' => $row->service->name,
                 'nama_dokter' =>  $row->doctor->name,
                 'hari' => $row->timetable->day,
