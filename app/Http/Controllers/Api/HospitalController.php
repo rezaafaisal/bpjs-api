@@ -37,14 +37,14 @@ class HospitalController extends Controller
         $data = Doctor::all();
 
         if(!$data) return Response::reply(false, 500, 'Gagal');
-        return Response::reply(true, 200, 'Berhasil', $data, 'Data semua dokter');
+        return Response::reply(true, 200, 'Berhasil', $data);
     }
 
     public function timetables($doctor_id){
         $data = Timetable::where('doctor_id', $doctor_id)->get();
 
         if(!$data) return Response::reply(false, 500, 'Gagal');
-        return Response::reply(true, 200, 'Berhasil', $data, 'Data waktu ketersediaan dokter '.Doctor::find($doctor_id)->name);
+        return Response::reply(true, 200, 'Berhasil', $data);
     }
 
     public function queues($patient_id){
@@ -64,7 +64,7 @@ class HospitalController extends Controller
 
         if(!$data) return Response::reply(false, 500, 'Gagal');
 
-        return Response::reply(true, 200, 'Berhasil', $data, 'Data antrian pasien '.$patient->name);
+        return Response::reply(true, 200, 'Berhasil', $data);
     }
 
     public function addQueue($patient_id, $service_id, $doctor_id, $timetable_id){
@@ -90,7 +90,7 @@ class HospitalController extends Controller
         ]);
 
         if(!$queue) return Response::reply(false, 500, 'Tidak berhasil');
-        return Response::reply(true, 200, 'Berhasil', $queue, 'Berhasil, data antrian telah selesai');
+        return Response::reply(true, 200, 'Berhasil', $queue);
     }
 
 }
