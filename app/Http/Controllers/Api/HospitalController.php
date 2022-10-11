@@ -24,13 +24,12 @@ class HospitalController extends Controller
             return [
                 'id' => str($row->id)->toString(),
                 'name' => $row->name,
-                'image' => $row->image,
                 'image_url' => asset('image/services/'.$row->image),
                 'category' => $row->service_category->name ?? 'belum ada'
             ];
         });
 
-        return Response::reply(true, 200, 'Berhasil', $data);
+        return response()->json($data, 200);
     }
 
     public function doctors(){
