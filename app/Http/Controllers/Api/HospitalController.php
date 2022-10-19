@@ -16,7 +16,8 @@ class HospitalController extends Controller
 {
     public function index(){
         $data = Hospital::all();
-        return Response::reply(true, 200, 'Berhasil', $data);
+        // return Response::reply(true, 200, 'Berhasil', $data);
+        return response()->json($data, 200);
     }
 
     public function service(){
@@ -36,14 +37,16 @@ class HospitalController extends Controller
         $data = Doctor::all();
 
         if(!$data) return Response::reply(false, 500, 'Gagal');
-        return Response::reply(true, 200, 'Berhasil', $data);
+        // return Response::reply(true, 200, 'Berhasil', $data);
+        return response()->json($data, 200);
     }
 
     public function timetables($doctor_id){
         $data = Timetable::where('doctor_id', $doctor_id)->get();
 
         if(!$data) return Response::reply(false, 500, 'Gagal');
-        return Response::reply(true, 200, 'Berhasil', $data);
+        // return Response::reply(true, 200, 'Berhasil', $data);
+        return response()->json($data, 200);
     }
 
     public function queues($patient_id){
@@ -63,7 +66,8 @@ class HospitalController extends Controller
 
         if(!$data) return Response::reply(false, 500, 'Gagal');
 
-        return Response::reply(true, 200, 'Berhasil', $data);
+        // return Response::reply(true, 200, 'Berhasil', $data);
+        return response()->json($data, 200);
     }
 
     public function addQueue($patient_id, $service_id, $doctor_id, $timetable_id){
@@ -79,7 +83,9 @@ class HospitalController extends Controller
 
         if(!$queue || !$timetable) return Response::reply(false, 500, 'Gagal');
 
-        return Response::reply(true, 200, 'Data antrian '.Patient::find($patient_id)->name.' berhasil ditambahkan', $queue);
+        // return Response::reply(true, 200, 'Data antrian '.Patient::find($patient_id)->name.' berhasil ditambahkan', $queue);
+
+        return response()->json($queue, 200);
         
     }
 
@@ -89,7 +95,8 @@ class HospitalController extends Controller
         ]);
 
         if(!$queue) return Response::reply(false, 500, 'Tidak berhasil');
-        return Response::reply(true, 200, 'Berhasil', $queue);
+        // return Response::reply(true, 200, 'Berhasil', $queue);
+        return response()->json($queue, 200);
     }
 
 }
