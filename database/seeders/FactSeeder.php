@@ -17,7 +17,7 @@ class FactSeeder extends Seeder
      */
     public function run()
     {
-        Patient::factory(20)->create();
+        // Patient::factory(20)->create();
 
         $doctors = [
             [
