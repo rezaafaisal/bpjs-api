@@ -9,32 +9,48 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Doctor;
 use App\Models\Patient;
+use App\Models\Polyclinic;
 use App\Models\Queue;
 use App\Models\Timetable;
 
 class HospitalController extends Controller
 {
-    public function index(){
-        $data = Hospital::all();
+    public function index($polyclinic_id){
+        $data = Service::where('polyclinic_id', $polyclinic_id)->get()->map(function($row){
+            return [
+                'id' => $row->id,
+                'name' => $row->hospital->name,
+                'phone' => $row->hospital->phone,
+                'address' => $row->hospital->address,
+                'rate' => $row->rate
+            ];
+        });
+
         // return Response::reply(true, 200, 'Berhasil', $data);
         return response()->json($data, 200);
     }
 
     public function service(){
-        $data = Service::all()->map(function($row){
+        $data = Polyclinic::all()->map(function($row){
             return [
-                'id' => str($row->id)->toString(),
+                'id' => $row->id,
                 'name' => $row->name,
                 'image_url' => asset('image/services/'.$row->image),
-                'category' => $row->service_category->name ?? 'belum ada'
             ];
         });
 
         return response()->json($data, 200);
     }
 
-    public function doctors(){
-        $data = Doctor::all();
+    public function doctors($service_id){
+        $data = Doctor::where('service_id', $service_id)->get()->map(function($row){
+            return [
+                'id' => $row->id,
+                'name' => $row->name,
+                'image_url' => asset('image/doctors/'.$row->image),
+                'specialist' => $row->specialist
+            ];
+        });
 
         if(!$data) return Response::reply(false, 500, 'Gagal');
         // return Response::reply(true, 200, 'Berhasil', $data);

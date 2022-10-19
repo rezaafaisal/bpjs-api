@@ -22,9 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('pengguna', [UserController::class, 'index']);
 Route::get('layanan', [HospitalController::class, 'service']);
-Route::get('rumah-sakit/{service_id}', [HospitalController::class, 'index']);
+Route::get('rumah-sakit/{polyclinic_id}', [HospitalController::class, 'index']);
 
-Route::get('dokter', [HospitalController::class, 'doctors']);
+Route::get('dokter/{service_id}', [HospitalController::class, 'doctors']);
 Route::get('dokter/waktu/{doctor_id}', [HospitalController::class, 'timetables']);
 Route::get('antrian/{patient_id}', [HospitalController::class, 'queues']);
 

@@ -24,35 +24,35 @@ class FactSeeder extends Seeder
                 'hospital_id' => 1,
                 'service_id' => 1,
                 'name' => 'Drg. Andi Tajrin, Sp.BM',
-                'image' => asset('image/doctors/tajrin.png'),
+                'image' => 'tajrin.png',
                 'specialist' => 'Spesialis Bedah Mulut'
             ],
             [
                 'hospital_id' => 1,
                 'service_id' => 1,
                 'name' => 'Drg. Ardian Jayakusuma, Sp.BM',
-                'image' => asset('image/doctors/men_d.png'),
+                'image' => 'men_d.png',
                 'specialist' => 'Spesialis Bedah Mulut'
             ],
             [
                 'hospital_id' => 1,
                 'service_id' => 1,
                 'name' => 'Drg. Chusnul Chotimah, Sp.Pros',
-                'image' => asset('image/doctors/women_d.png'),
+                'image' => 'women_d.png',
                 'specialist' => 'Spesialis Prostodonsia',
             ],
             [
                 'hospital_id' => 1,
                 'service_id' => 1,
                 'name' => 'Drg. Sultana Basalamah',
-                'image' => asset('image/doctors/sultana.png'),
+                'image' => 'sultana.png',
                 'specialist' => 'Spesialis Dokter Gigi',
             ],
             [
                 'hospital_id' => 1,
                 'service_id' => 1,
                 'name' => 'Drg. Sarahfin Aslan, Sp.KG',
-                'image' => asset('image/doctors/women_d.png'),
+                'image' => 'women_d.png',
                 'specialist' => 'Spesialis Konservasi Gigi',
             ],
         ];
