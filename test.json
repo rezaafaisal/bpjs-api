@@ -1,0 +1,956 @@
+{
+    "info": {
+        "_postman_id": "fde65897-dbe3-4af2-b801-759906764fc8",
+        "name": "Hackaton",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "23530598"
+    },
+    "item": [{
+            "name": "API Info SEP",
+            "event": [{
+                "listen": "prerequest",
+                "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                        "var timestamp = Math.floor(Date.now()/1000);",
+                        "var signature = CryptoJS.HmacSHA256(pm.environment.get(\"consid\") + \"&\" + timestamp, pm.environment.get(\"secretkey\"));",
+                        "signature = CryptoJS.enc.Base64.stringify(signature);",
+                        "",
+                        "pm.environment.set(\"timestamp\", timestamp);",
+                        "pm.environment.set(\"signature\", signature);"
+                    ]
+                }
+            }],
+            "request": {
+                "method": "GET",
+                "header": [{
+                        "key": "X-cons-id",
+                        "value": "{{consid}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-timestamp",
+                        "value": "{{timestamp}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-signature",
+                        "value": "{{signature}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/SEP/0901R0010322V000021",
+                    "protocol": "https",
+                    "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                    "path": ["hackaton", "SEP", "0901R0010322V000021"]
+                }
+            },
+            "response": [{
+                "name": "API Info SEP",
+                "originalRequest": {
+                    "method": "GET",
+                    "header": [{
+                            "key": "X-cons-id",
+                            "value": " 1000",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-timestamp",
+                            "value": " 1663904289",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-signature",
+                            "value": " scilBjLa44mkGfyVnPrDaZKho/LWT2Ht04xoh5co5QM=",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-Authorization",
+                            "value": " Basic OjowOTU=",
+                            "type": "text"
+                        }
+                    ],
+                    "url": {
+                        "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/SEP/0901R0010322V000021",
+                        "protocol": "https",
+                        "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                        "path": ["hackaton", "SEP", "0901R0010322V000021"]
+                    }
+                },
+                "status": "OK",
+                "code": 200,
+                "_postman_previewlanguage": "json",
+                "header": [{
+                        "key": "Cache-Control",
+                        "value": "private"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json; charset=utf-8"
+                    },
+                    {
+                        "key": "Server",
+                        "value": "Microsoft-IIS/8.5"
+                    },
+                    {
+                        "key": "X-AspNet-Version",
+                        "value": "4.0.30319"
+                    },
+                    {
+                        "key": "Date",
+                        "value": "Fri, 23 Sep 2022 03:43:09 GMT"
+                    },
+                    {
+                        "key": "Content-Length",
+                        "value": "489"
+                    }
+                ],
+                "cookie": [],
+                "body": "{\n    \"metaData\": {\n        \"code\": \"200\",\n        \"message\": \"Sukses\"\n    },\n    \"response\": {\n        \"catatan\": \"Dari WS\",\n        \"diagnosa\": \"Unspecified renal failure\",\n        \"informasi\": null,\n        \"jnsPelayanan\": \"Rawat Inap\",\n        \"kelasRawat\": \"2\",\n        \"noRujukan\": \"132465789\",\n        \"noSep\": \"0901R0010322V000021\",\n        \"penjamin\": null,\n        \"peserta\": {\n            \"asuransi\": null,\n            \"hakKelas\": \"Kelas 2\",\n            \"jnsPeserta\": \"PEGAWAI SWASTA\",\n            \"kelamin\": \"L\",\n            \"nama\": \"ZTLWLDVJGVICLDKJXHEC\",\n            \"noKartu\": \"0002058036568\",\n            \"noMr\": \"1004\",\n            \"tglLahir\": \"1980-08-09\"\n        },\n        \"poli\": \"\",\n        \"poliEksekutif\": \"0\",\n        \"tglSep\": \"2022-03-21\"\n    }\n}"
+            }]
+        },
+        {
+            "name": "API Info Rujukan",
+            "event": [{
+                "listen": "prerequest",
+                "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                        "var timestamp = Math.floor(Date.now()/1000);",
+                        "var signature = CryptoJS.HmacSHA256(pm.environment.get(\"consid\") + \"&\" + timestamp, pm.environment.get(\"secretkey\"));",
+                        "signature = CryptoJS.enc.Base64.stringify(signature);",
+                        "",
+                        "pm.environment.set(\"timestamp\", timestamp);",
+                        "pm.environment.set(\"signature\", signature);"
+                    ]
+                }
+            }],
+            "request": {
+                "method": "GET",
+                "header": [{
+                        "key": "X-cons-id",
+                        "value": "{{consid}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-timestamp",
+                        "value": "{{timestamp}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-signature",
+                        "value": "{{signature}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-Authorization",
+                        "value": " Basic OjowOTU=",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/rujukan/0138U0221018Y000035",
+                    "protocol": "https",
+                    "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                    "path": ["hackaton", "rujukan", "0138U0221018Y000035"]
+                }
+            },
+            "response": [{
+                "name": "API Info Rujukan",
+                "originalRequest": {
+                    "method": "GET",
+                    "header": [{
+                            "key": "X-cons-id",
+                            "value": " 1000",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-timestamp",
+                            "value": " 1663906145",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-signature",
+                            "value": " 3Pq4xxWq8ueXxHo4/5+GzE4hg1w9/cAX9a+v1wXEQtM=",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-Authorization",
+                            "value": " Basic OjowOTU=",
+                            "type": "text"
+                        }
+                    ],
+                    "url": {
+                        "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/rujukan/0138U0221018Y000035",
+                        "protocol": "https",
+                        "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                        "path": [
+                            "hackaton",
+                            "rujukan",
+                            "0138U0221018Y000035"
+                        ]
+                    }
+                },
+                "status": "OK",
+                "code": 200,
+                "_postman_previewlanguage": "json",
+                "header": [{
+                        "key": "Cache-Control",
+                        "value": "private"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json; charset=utf-8"
+                    },
+                    {
+                        "key": "Server",
+                        "value": "Microsoft-IIS/8.5"
+                    },
+                    {
+                        "key": "X-AspNet-Version",
+                        "value": "4.0.30319"
+                    },
+                    {
+                        "key": "Date",
+                        "value": "Fri, 23 Sep 2022 04:13:05 GMT"
+                    },
+                    {
+                        "key": "Content-Length",
+                        "value": "1128"
+                    }
+                ],
+                "cookie": [],
+                "body": "{\n    \"metaData\": {\n        \"code\": \"200\",\n        \"message\": \"OK\"\n    },\n    \"response\": {\n        \"asalFaskes\": \"1\",\n        \"rujukan\": {\n            \"diagnosa\": {\n                \"kode\": \"N18\",\n                \"nama\": \"Chronic kidney disease\"\n            },\n            \"keluhan\": \"Riwayat HEMODIALISA di RSUPN Dr. CIPTO MANGUNKUSUMO, pro Hemodialisa rutin\",\n            \"noKunjungan\": \"0138U0221018Y000035\",\n            \"pelayanan\": {\n                \"kode\": \"2\",\n                \"nama\": \"Rawat Jalan\"\n            },\n            \"peserta\": {\n                \"cob\": {\n                    \"nmAsuransi\": null,\n                    \"noAsuransi\": null,\n                    \"tglTAT\": null,\n                    \"tglTMT\": null\n                },\n                \"hakKelas\": {\n                    \"keterangan\": \"KELAS I\",\n                    \"kode\": \"1\"\n                },\n                \"informasi\": {\n                    \"dinsos\": null,\n                    \"noSKTM\": null,\n                    \"prolanisPRB\": null\n                },\n                \"jenisPeserta\": {\n                    \"keterangan\": \"PNS DAERAH\",\n                    \"kode\": \"3\"\n                },\n                \"mr\": {\n                    \"noMR\": null,\n                    \"noTelepon\": null\n                },\n                \"nama\": \"DEDI SUPREDI\",\n                \"nik\": \"3276050502630003\",\n                \"noKartu\": \"0000060734586\",\n                \"pisa\": \"1\",\n                \"provUmum\": {\n                    \"kdProvider\": null,\n                    \"nmProvider\": null\n                },\n                \"sex\": \"L\",\n                \"statusPeserta\": {\n                    \"keterangan\": \"AKTIF\",\n                    \"kode\": \"0\"\n                },\n                \"tglCetakKartu\": \"2018-10-01\",\n                \"tglLahir\": \"1963-02-05\",\n                \"tglTAT\": \"2063-02-05\",\n                \"tglTMT\": \"1989-11-01\",\n                \"umur\": {\n                    \"umurSaatPelayanan\": \"55 tahun ,8 bulan ,4 hari\",\n                    \"umurSekarang\": \"59 tahun ,7 bulan ,18 hari\"\n                }\n            },\n            \"poliRujukan\": {\n                \"kode\": \"INT\",\n                \"nama\": \"PENYAKIT DALAM\"\n            },\n            \"provPerujuk\": {\n                \"kode\": \"0138U022\",\n                \"nama\": \"KPRJ BHAKTI KERINCI\"\n            },\n            \"tglKunjungan\": \"2018-10-01\"\n        }\n    }\n}"
+            }]
+        },
+        {
+            "name": "API Referensi Propinsi",
+            "event": [{
+                "listen": "prerequest",
+                "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                        "var timestamp = Math.floor(Date.now()/1000);",
+                        "var signature = CryptoJS.HmacSHA256(pm.environment.get(\"consid\") + \"&\" + timestamp, pm.environment.get(\"secretkey\"));",
+                        "signature = CryptoJS.enc.Base64.stringify(signature);",
+                        "",
+                        "pm.environment.set(\"timestamp\", timestamp);",
+                        "pm.environment.set(\"signature\", signature);"
+                    ]
+                }
+            }],
+            "request": {
+                "method": "GET",
+                "header": [{
+                        "key": "X-cons-id",
+                        "value": "{{consid}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-timestamp",
+                        "value": "{{timestamp}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-signature",
+                        "value": "{{signature}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-Authorization",
+                        "value": " Basic OjowOTU=",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/Referensi/propinsi",
+                    "protocol": "https",
+                    "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                    "path": ["hackaton", "Referensi", "propinsi"]
+                }
+            },
+            "response": [{
+                "name": "API Referensi Propinsi",
+                "originalRequest": {
+                    "method": "GET",
+                    "header": [{
+                            "key": "X-cons-id",
+                            "value": " 1000",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-timestamp",
+                            "value": " 1663905362",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-signature",
+                            "value": " e/GHvqyG++X7WjEs/dF+++El9yiwsZAHLMwjNKorx+Q=",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-Authorization",
+                            "value": " Basic OjowOTU=",
+                            "type": "text"
+                        }
+                    ],
+                    "url": {
+                        "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/Referensi/propinsi",
+                        "protocol": "https",
+                        "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                        "path": ["hackaton", "Referensi", "propinsi"]
+                    }
+                },
+                "status": "OK",
+                "code": 200,
+                "_postman_previewlanguage": "json",
+                "header": [{
+                        "key": "Cache-Control",
+                        "value": "private"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json; charset=utf-8"
+                    },
+                    {
+                        "key": "Server",
+                        "value": "Microsoft-IIS/8.5"
+                    },
+                    {
+                        "key": "X-AspNet-Version",
+                        "value": "4.0.30319"
+                    },
+                    {
+                        "key": "Date",
+                        "value": "Fri, 23 Sep 2022 03:59:35 GMT"
+                    },
+                    {
+                        "key": "Content-Length",
+                        "value": "1352"
+                    }
+                ],
+                "cookie": [],
+                "body": "{\n    \"metaData\": {\n        \"code\": \"200\",\n        \"message\": \"Sukses\"\n    },\n    \"response\": {\n        \"list\": [\n            {\n                \"kode\": \"16\",\n                \"nama\": \"BALI\"\n            },\n            {\n                \"kode\": \"15\",\n                \"nama\": \"BANTEN\"\n            },\n            {\n                \"kode\": \"07\",\n                \"nama\": \"BENGKULU\"\n            },\n            {\n                \"kode\": \"13\",\n                \"nama\": \"D I  YOGYAKARTA\"\n            },\n            {\n                \"kode\": \"10\",\n                \"nama\": \"DKI JAKARTA\"\n            },\n            {\n                \"kode\": \"27\",\n                \"nama\": \"GORONTALO\"\n            },\n            {\n                \"kode\": \"05\",\n                \"nama\": \"JAMBI\"\n            },\n            {\n                \"kode\": \"11\",\n                \"nama\": \"JAWA BARAT\"\n            },\n            {\n                \"kode\": \"12\",\n                \"nama\": \"JAWA TENGAH\"\n            },\n            {\n                \"kode\": \"14\",\n                \"nama\": \"JAWA TIMUR\"\n            },\n            {\n                \"kode\": \"19\",\n                \"nama\": \"KALIMANTAN BARAT\"\n            },\n            {\n                \"kode\": \"21\",\n                \"nama\": \"KALIMANTAN SELATAN\"\n            },\n            {\n                \"kode\": \"20\",\n                \"nama\": \"KALIMANTAN TENGAH\"\n            },\n            {\n                \"kode\": \"22\",\n                \"nama\": \"KALIMANTAN TIMUR\"\n            },\n            {\n                \"kode\": \"34\",\n                \"nama\": \"KALIMANTAN UTARA\"\n            },\n            {\n                \"kode\": \"09\",\n                \"nama\": \"KEP. BANGKA BELITUNG\"\n            },\n            {\n                \"kode\": \"33\",\n                \"nama\": \"KEPULAUAN RIAU\"\n            },\n            {\n                \"kode\": \"08\",\n                \"nama\": \"LAMPUNG\"\n            },\n            {\n                \"kode\": \"99\",\n                \"nama\": \"LUAR NEGERI\"\n            },\n            {\n                \"kode\": \"28\",\n                \"nama\": \"MALUKU\"\n            },\n            {\n                \"kode\": \"29\",\n                \"nama\": \"MALUKU UTARA\"\n            },\n            {\n                \"kode\": \"01\",\n                \"nama\": \"NANGGROE ACEH DARUSSALAM\"\n            },\n            {\n                \"kode\": \"17\",\n                \"nama\": \"NUSA TENGGARA BARAT\"\n            },\n            {\n                \"kode\": \"18\",\n                \"nama\": \"NUSA TENGGARA TIMUR\"\n            },\n            {\n                \"kode\": \"30\",\n                \"nama\": \"PAPUA\"\n            },\n            {\n                \"kode\": \"31\",\n                \"nama\": \"PAPUA BARAT\"\n            },\n            {\n                \"kode\": \"04\",\n                \"nama\": \"RIAU\"\n            },\n            {\n                \"kode\": \"32\",\n                \"nama\": \"SULAWESI BARAT\"\n            },\n            {\n                \"kode\": \"25\",\n                \"nama\": \"SULAWESI SELATAN\"\n            },\n            {\n                \"kode\": \"24\",\n                \"nama\": \"SULAWESI TENGAH\"\n            },\n            {\n                \"kode\": \"26\",\n                \"nama\": \"SULAWESI TENGGARA\"\n            },\n            {\n                \"kode\": \"23\",\n                \"nama\": \"SULAWESI UTARA\"\n            },\n            {\n                \"kode\": \"03\",\n                \"nama\": \"SUMATERA BARAT\"\n            },\n            {\n                \"kode\": \"06\",\n                \"nama\": \"SUMATERA SELATAN\"\n            },\n            {\n                \"kode\": \"02\",\n                \"nama\": \"SUMATERA UTARA\"\n            }\n        ]\n    }\n}"
+            }]
+        },
+        {
+            "name": "API Referensi Kabupaten",
+            "event": [{
+                "listen": "prerequest",
+                "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                        "var timestamp = Math.floor(Date.now()/1000);",
+                        "var signature = CryptoJS.HmacSHA256(pm.environment.get(\"consid\") + \"&\" + timestamp, pm.environment.get(\"secretkey\"));",
+                        "signature = CryptoJS.enc.Base64.stringify(signature);",
+                        "",
+                        "pm.environment.set(\"timestamp\", timestamp);",
+                        "pm.environment.set(\"signature\", signature);"
+                    ]
+                }
+            }],
+            "request": {
+                "method": "GET",
+                "header": [{
+                        "key": "X-cons-id",
+                        "value": "{{consid}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-timestamp",
+                        "value": "{{timestamp}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-signature",
+                        "value": "{{signature}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-Authorization",
+                        "value": " Basic OjowOTU=",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/Referensi/kabupaten/propinsi/16",
+                    "protocol": "https",
+                    "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                    "path": [
+                        "hackaton",
+                        "Referensi",
+                        "kabupaten",
+                        "propinsi",
+                        "16"
+                    ]
+                }
+            },
+            "response": [{
+                "name": "API Referensi Kabupaten",
+                "originalRequest": {
+                    "method": "GET",
+                    "header": [{
+                            "key": "X-cons-id",
+                            "value": " 1000",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-timestamp",
+                            "value": " 1663905362",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-signature",
+                            "value": " e/GHvqyG++X7WjEs/dF+++El9yiwsZAHLMwjNKorx+Q=",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-Authorization",
+                            "value": " Basic OjowOTU=",
+                            "type": "text"
+                        }
+                    ],
+                    "url": {
+                        "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/Referensi/kabupaten/propinsi/11",
+                        "protocol": "https",
+                        "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                        "path": [
+                            "hackaton",
+                            "Referensi",
+                            "kabupaten",
+                            "propinsi",
+                            "11"
+                        ]
+                    }
+                },
+                "status": "OK",
+                "code": 200,
+                "_postman_previewlanguage": "json",
+                "header": [{
+                        "key": "Cache-Control",
+                        "value": "private"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json; charset=utf-8"
+                    },
+                    {
+                        "key": "Server",
+                        "value": "Microsoft-IIS/8.5"
+                    },
+                    {
+                        "key": "X-AspNet-Version",
+                        "value": "4.0.30319"
+                    },
+                    {
+                        "key": "Date",
+                        "value": "Fri, 23 Sep 2022 04:01:05 GMT"
+                    },
+                    {
+                        "key": "Content-Length",
+                        "value": "1111"
+                    }
+                ],
+                "cookie": [],
+                "body": "{\n    \"metaData\": {\n        \"code\": \"200\",\n        \"message\": \"Sukses\"\n    },\n    \"response\": {\n        \"list\": [\n            {\n                \"kode\": \"0120\",\n                \"nama\": \"KAB. BANDUNG\"\n            },\n            {\n                \"kode\": \"0464\",\n                \"nama\": \"KAB. BANDUNG BARAT\"\n            },\n            {\n                \"kode\": \"0132\",\n                \"nama\": \"KAB. BEKASI\"\n            },\n            {\n                \"kode\": \"0117\",\n                \"nama\": \"KAB. BOGOR\"\n            },\n            {\n                \"kode\": \"0123\",\n                \"nama\": \"KAB. CIAMIS\"\n            },\n            {\n                \"kode\": \"0119\",\n                \"nama\": \"KAB. CIANJUR\"\n            },\n            {\n                \"kode\": \"0125\",\n                \"nama\": \"KAB. CIREBON\"\n            },\n            {\n                \"kode\": \"0121\",\n                \"nama\": \"KAB. GARUT\"\n            },\n            {\n                \"kode\": \"0128\",\n                \"nama\": \"KAB. INDRAMAYU\"\n            },\n            {\n                \"kode\": \"0131\",\n                \"nama\": \"KAB. KARAWANG\"\n            },\n            {\n                \"kode\": \"0124\",\n                \"nama\": \"KAB. KUNINGAN\"\n            },\n            {\n                \"kode\": \"0126\",\n                \"nama\": \"KAB. MAJALENGKA\"\n            },\n            {\n                \"kode\": \"0518\",\n                \"nama\": \"KAB. PANGANDARAN\"\n            },\n            {\n                \"kode\": \"0130\",\n                \"nama\": \"KAB. PURWAKARTA\"\n            },\n            {\n                \"kode\": \"0129\",\n                \"nama\": \"KAB. SUBANG\"\n            },\n            {\n                \"kode\": \"0118\",\n                \"nama\": \"KAB. SUKABUMI\"\n            },\n            {\n                \"kode\": \"0127\",\n                \"nama\": \"KAB. SUMEDANG\"\n            },\n            {\n                \"kode\": \"0122\",\n                \"nama\": \"KAB. TASIKMALAYA\"\n            },\n            {\n                \"kode\": \"0135\",\n                \"nama\": \"KOTA BANDUNG\"\n            },\n            {\n                \"kode\": \"0111\",\n                \"nama\": \"KOTA BANJAR\"\n            },\n            {\n                \"kode\": \"0137\",\n                \"nama\": \"KOTA BEKASI\"\n            },\n            {\n                \"kode\": \"0133\",\n                \"nama\": \"KOTA BOGOR\"\n            },\n            {\n                \"kode\": \"0093\",\n                \"nama\": \"KOTA CIMAHI\"\n            },\n            {\n                \"kode\": \"0136\",\n                \"nama\": \"KOTA CIREBON\"\n            },\n            {\n                \"kode\": \"0138\",\n                \"nama\": \"KOTA DEPOK\"\n            },\n            {\n                \"kode\": \"0134\",\n                \"nama\": \"KOTA SUKABUMI\"\n            },\n            {\n                \"kode\": \"0380\",\n                \"nama\": \"KOTA TASIKMALAYA\"\n            }\n        ]\n    }\n}"
+            }]
+        },
+        {
+            "name": "API Referensi Kecamatan",
+            "event": [{
+                "listen": "prerequest",
+                "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                        "var timestamp = Math.floor(Date.now()/1000);",
+                        "var signature = CryptoJS.HmacSHA256(pm.environment.get(\"consid\") + \"&\" + timestamp, pm.environment.get(\"secretkey\"));",
+                        "signature = CryptoJS.enc.Base64.stringify(signature);",
+                        "",
+                        "pm.environment.set(\"timestamp\", timestamp);",
+                        "pm.environment.set(\"signature\", signature);"
+                    ]
+                }
+            }],
+            "request": {
+                "method": "GET",
+                "header": [{
+                        "key": "X-cons-id",
+                        "value": "{{consid}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-timestamp",
+                        "value": "{{timestamp}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-signature",
+                        "value": "{{signature}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-Authorization",
+                        "value": " Basic OjowOTU=",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/Referensi/kecamatan/kabupaten/0227",
+                    "protocol": "https",
+                    "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                    "path": [
+                        "hackaton",
+                        "Referensi",
+                        "kecamatan",
+                        "kabupaten",
+                        "0227"
+                    ]
+                }
+            },
+            "response": [{
+                "name": "API Referensi Kecamatan",
+                "originalRequest": {
+                    "method": "GET",
+                    "header": [{
+                            "key": "X-cons-id",
+                            "value": " 1000",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-timestamp",
+                            "value": " 1663905362",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-signature",
+                            "value": " e/GHvqyG++X7WjEs/dF+++El9yiwsZAHLMwjNKorx+Q=",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-Authorization",
+                            "value": " Basic OjowOTU=",
+                            "type": "text"
+                        }
+                    ],
+                    "url": {
+                        "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/Referensi/kecamatan/kabupaten/0120",
+                        "protocol": "https",
+                        "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                        "path": [
+                            "hackaton",
+                            "Referensi",
+                            "kecamatan",
+                            "kabupaten",
+                            "0120"
+                        ]
+                    }
+                },
+                "status": "OK",
+                "code": 200,
+                "_postman_previewlanguage": "json",
+                "header": [{
+                        "key": "Cache-Control",
+                        "value": "private"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json; charset=utf-8"
+                    },
+                    {
+                        "key": "Server",
+                        "value": "Microsoft-IIS/8.5"
+                    },
+                    {
+                        "key": "X-AspNet-Version",
+                        "value": "4.0.30319"
+                    },
+                    {
+                        "key": "Date",
+                        "value": "Fri, 23 Sep 2022 04:02:11 GMT"
+                    },
+                    {
+                        "key": "Content-Length",
+                        "value": "1401"
+                    }
+                ],
+                "cookie": [],
+                "body": "{\n    \"metaData\": {\n        \"code\": \"200\",\n        \"message\": \"Sukses\"\n    },\n    \"response\": {\n        \"list\": [\n            {\n                \"kode\": \"1315\",\n                \"nama\": \"ARJASARI\"\n            },\n            {\n                \"kode\": \"1314\",\n                \"nama\": \"BALEENDAH\"\n            },\n            {\n                \"kode\": \"A368\",\n                \"nama\": \"BANDUNG WETAN\"\n            },\n            {\n                \"kode\": \"1316\",\n                \"nama\": \"BANJARAN\"\n            },\n            {\n                \"kode\": \"1329\",\n                \"nama\": \"BOJONGSOANG\"\n            },\n            {\n                \"kode\": \"7319\",\n                \"nama\": \"CANGKUANG\"\n            },\n            {\n                \"kode\": \"1308\",\n                \"nama\": \"CICALENGKA\"\n            },\n            {\n                \"kode\": \"A437\",\n                \"nama\": \"CICALENGKA WETAN\"\n            },\n            {\n                \"kode\": \"A438\",\n                \"nama\": \"CICENDO\"\n            },\n            {\n                \"kode\": \"1307\",\n                \"nama\": \"CIKANCUNG\"\n            },\n            {\n                \"kode\": \"1331\",\n                \"nama\": \"CILENGKRANG\"\n            },\n            {\n                \"kode\": \"1330\",\n                \"nama\": \"CILEUNYI\"\n            },\n            {\n                \"kode\": \"1301\",\n                \"nama\": \"CIMAUNG\"\n            },\n            {\n                \"kode\": \"1332\",\n                \"nama\": \"CIMEUNYAN\"\n            },\n            {\n                \"kode\": \"1313\",\n                \"nama\": \"CIPARAY\"\n            },\n            {\n                \"kode\": \"1298\",\n                \"nama\": \"CIWIDEY\"\n            },\n            {\n                \"kode\": \"A473\",\n                \"nama\": \"COBLONG\"\n            },\n            {\n                \"kode\": \"1328\",\n                \"nama\": \"DAYEUHKOLOT\"\n            },\n            {\n                \"kode\": \"1305\",\n                \"nama\": \"IBUN\"\n            },\n            {\n                \"kode\": \"1318\",\n                \"nama\": \"KATAPANG\"\n            },\n            {\n                \"kode\": \"1303\",\n                \"nama\": \"KERTASARI\"\n            },\n            {\n                \"kode\": \"0922\",\n                \"nama\": \"KUTAWARINGIN\"\n            },\n            {\n                \"kode\": \"1311\",\n                \"nama\": \"MAJALAYA\"\n            },\n            {\n                \"kode\": \"1326\",\n                \"nama\": \"MARGAASIH\"\n            },\n            {\n                \"kode\": \"1327\",\n                \"nama\": \"MARGAHAYU\"\n            },\n            {\n                \"kode\": \"1309\",\n                \"nama\": \"NAGREK\"\n            },\n            {\n                \"kode\": \"1304\",\n                \"nama\": \"PACET\"\n            },\n            {\n                \"kode\": \"1317\",\n                \"nama\": \"PAMEUNGPEUK\"\n            },\n            {\n                \"kode\": \"1302\",\n                \"nama\": \"PANGALENGAN\"\n            },\n            {\n                \"kode\": \"1306\",\n                \"nama\": \"PASEH\"\n            },\n            {\n                \"kode\": \"1300\",\n                \"nama\": \"PASIRJAMBU\"\n            },\n            {\n                \"kode\": \"1299\",\n                \"nama\": \"RANCABALI\"\n            },\n            {\n                \"kode\": \"1310\",\n                \"nama\": \"RANCAEKEK\"\n            },\n            {\n                \"kode\": \"A736\",\n                \"nama\": \"RANCAEKEK KENCANA\"\n            },\n            {\n                \"kode\": \"1312\",\n                \"nama\": \"SOLOKAN JERUK\"\n            },\n            {\n                \"kode\": \"1319\",\n                \"nama\": \"SOREANG\"\n            },\n            {\n                \"kode\": \"A812\",\n                \"nama\": \"SUKAJADI\"\n            },\n            {\n                \"kode\": \"A819\",\n                \"nama\": \"SUKAPURA\"\n            }\n        ]\n    }\n}"
+            }]
+        },
+        {
+            "name": "API Info Riwayat Rekam Medis Peserta",
+            "event": [{
+                "listen": "prerequest",
+                "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                        "var timestamp = Math.floor(Date.now()/1000);",
+                        "var signature = CryptoJS.HmacSHA256(pm.environment.get(\"consid\") + \"&\" + timestamp, pm.environment.get(\"secretkey\"));",
+                        "signature = CryptoJS.enc.Base64.stringify(signature);",
+                        "",
+                        "pm.environment.set(\"timestamp\", timestamp);",
+                        "pm.environment.set(\"signature\", signature);"
+                    ]
+                }
+            }],
+            "request": {
+                "method": "GET",
+                "header": [{
+                        "key": "X-cons-id",
+                        "value": "{{consid}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-timestamp",
+                        "value": "{{timestamp}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-signature",
+                        "value": "{{signature}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-Authorization",
+                        "value": "Basic OjowOTU=",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/monitoring/HistoriPelayanan/NoKartu/0002050330948/tglAwal/2022-03-01/tglAkhir/2022-04-30",
+                    "protocol": "https",
+                    "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                    "path": [
+                        "hackaton",
+                        "monitoring",
+                        "HistoriPelayanan",
+                        "NoKartu",
+                        "0002050330948",
+                        "tglAwal",
+                        "2022-03-01",
+                        "tglAkhir",
+                        "2022-04-30"
+                    ]
+                }
+            },
+            "response": [{
+                "name": "API Info Riwayat Rekam Medis Peserta",
+                "originalRequest": {
+                    "method": "GET",
+                    "header": [{
+                            "key": "X-cons-id",
+                            "value": " 1000",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-timestamp",
+                            "value": " 1663905795",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-signature",
+                            "value": " qEWRZPDQprAhaAVqh5UVMMVG3jEvEPW1aVz4euAEQDw=",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-Authorization",
+                            "value": " Basic OjowOTU=",
+                            "type": "text"
+                        }
+                    ],
+                    "url": {
+                        "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/monitoring/HistoriPelayanan/NoKartu/0002051582769/tglAwal/2022-04-01/tglAkhir/2022-04-30",
+                        "protocol": "https",
+                        "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                        "path": [
+                            "hackaton",
+                            "monitoring",
+                            "HistoriPelayanan",
+                            "NoKartu",
+                            "0002051582769",
+                            "tglAwal",
+                            "2022-04-01",
+                            "tglAkhir",
+                            "2022-04-30"
+                        ]
+                    }
+                },
+                "status": "OK",
+                "code": 200,
+                "_postman_previewlanguage": "json",
+                "header": [{
+                        "key": "Cache-Control",
+                        "value": "private"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json; charset=utf-8"
+                    },
+                    {
+                        "key": "Server",
+                        "value": "Microsoft-IIS/8.5"
+                    },
+                    {
+                        "key": "X-AspNet-Version",
+                        "value": "4.0.30319"
+                    },
+                    {
+                        "key": "Date",
+                        "value": "Fri, 23 Sep 2022 04:04:53 GMT"
+                    },
+                    {
+                        "key": "Content-Length",
+                        "value": "784"
+                    }
+                ],
+                "cookie": [],
+                "body": "{\n    \"metaData\": {\n        \"code\": \"200\",\n        \"message\": \"Sukses\"\n    },\n    \"response\": {\n        \"histori\": [\n            {\n                \"asuransi\": null,\n                \"diagnosa\": \"N19 - Unspecified renal failure\",\n                \"flag\": null,\n                \"jnsPelayanan\": \"2\",\n                \"kelasRawat\": \"Kelas 3\",\n                \"namaPeserta\": \"XEERAFFUCTYVBPLFSMNR\",\n                \"noKartu\": \"0002051582769\",\n                \"noRujukan\": \"0114R0670422B000001\",\n                \"noSep\": \"0901R0010422V000001\",\n                \"poli\": \"PENYAKIT DALAM\",\n                \"poliTujSep\": null,\n                \"ppkPelayanan\": \"RSUPN Dr. CIPTO MANGUNKUSUMO\",\n                \"tglPlgSep\": null,\n                \"tglSep\": \"2022-04-04\"\n            },\n            {\n                \"asuransi\": null,\n                \"diagnosa\": \"N19 - Unspecified renal failure\",\n                \"flag\": null,\n                \"jnsPelayanan\": \"2\",\n                \"kelasRawat\": \"Kelas 3\",\n                \"namaPeserta\": \"XEERAFFUCTYVBPLFSMNR\",\n                \"noKartu\": \"0002051582769\",\n                \"noRujukan\": \"\",\n                \"noSep\": \"0114R0670422V000001\",\n                \"poli\": \"INSTALASI GAWAT DARURAT\",\n                \"poliTujSep\": null,\n                \"ppkPelayanan\": \"RSU Yarsi\",\n                \"tglPlgSep\": null,\n                \"tglSep\": \"2022-04-04\"\n            }\n        ]\n    }\n}"
+            }]
+        },
+        {
+            "name": "API Info Faskes",
+            "event": [{
+                "listen": "prerequest",
+                "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                        "var timestamp = Math.floor(Date.now()/1000);",
+                        "var signature = CryptoJS.HmacSHA256(pm.environment.get(\"consid\") + \"&\" + timestamp, pm.environment.get(\"secretkey\"));",
+                        "signature = CryptoJS.enc.Base64.stringify(signature);",
+                        "",
+                        "pm.environment.set(\"timestamp\", timestamp);",
+                        "pm.environment.set(\"signature\", signature);"
+                    ]
+                }
+            }],
+            "request": {
+                "method": "GET",
+                "header": [{
+                        "key": "X-cons-id",
+                        "value": "{{consid}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-timestamp",
+                        "value": "{{timestamp}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-signature",
+                        "value": "{{signature}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-Authorization",
+                        "value": " Basic OjowOTU=",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/referensi/faskes/awal/2",
+                    "protocol": "https",
+                    "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                    "path": ["hackaton", "referensi", "faskes", "awal", "2"]
+                }
+            },
+            "response": [{
+                "name": "API Info Faskes",
+                "originalRequest": {
+                    "method": "GET",
+                    "header": [{
+                            "key": "X-cons-id",
+                            "value": " 1000",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-timestamp",
+                            "value": " 1663905795",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-signature",
+                            "value": " qEWRZPDQprAhaAVqh5UVMMVG3jEvEPW1aVz4euAEQDw=",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-Authorization",
+                            "value": " Basic OjowOTU=",
+                            "type": "text"
+                        }
+                    ],
+                    "url": {
+                        "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/referensi/faskes/awal/2",
+                        "protocol": "https",
+                        "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                        "path": [
+                            "hackaton",
+                            "referensi",
+                            "faskes",
+                            "awal",
+                            "2"
+                        ]
+                    }
+                },
+                "status": "OK",
+                "code": 200,
+                "_postman_previewlanguage": "json",
+                "header": [{
+                        "key": "Cache-Control",
+                        "value": "private"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json; charset=utf-8"
+                    },
+                    {
+                        "key": "Server",
+                        "value": "Microsoft-IIS/8.5"
+                    },
+                    {
+                        "key": "X-AspNet-Version",
+                        "value": "4.0.30319"
+                    },
+                    {
+                        "key": "Date",
+                        "value": "Fri, 23 Sep 2022 04:06:30 GMT"
+                    },
+                    {
+                        "key": "Content-Length",
+                        "value": "711"
+                    }
+                ],
+                "cookie": [],
+                "body": "{\n    \"metaData\": {\n        \"code\": \"200\",\n        \"message\": \"Sukses\"\n    },\n    \"response\": {\n        \"faskes\": [\n            {\n                \"kode\": \"0063R002\",\n                \"nama\": \"RS AWAL BROS UJUNG BATU - KAB. ROKAN HULU\"\n            },\n            {\n                \"kode\": \"0069R008\",\n                \"nama\": \"RS AWAL BROS - KOTA PEKAN BARU\"\n            },\n            {\n                \"kode\": \"0069R037\",\n                \"nama\": \"RS AWAL BROS PANAM - KOTA PEKAN BARU\"\n            },\n            {\n                \"kode\": \"0069R052\",\n                \"nama\": \"RS AWAL BROS A. YANI - KOTA PEKAN BARU\"\n            },\n            {\n                \"kode\": \"0123R006\",\n                \"nama\": \"RSUD Kawali - KAB. CIAMIS\"\n            },\n            {\n                \"kode\": \"0135R025\",\n                \"nama\": \"RS RAJAWALI - KOTA BANDUNG\"\n            },\n            {\n                \"kode\": \"0177R009\",\n                \"nama\": \"RS Rajawali Citra Bantul - KAB. BANTUL\"\n            },\n            {\n                \"kode\": \"0306R011\",\n                \"nama\": \"RS Dr. J. H. Awaloei - KAB. MINAHASA\"\n            },\n            {\n                \"kode\": \"0407R008\",\n                \"nama\": \"RS AWAL BROS BATAM - KOTA BATAM\"\n            },\n            {\n                \"kode\": \"0464R003\",\n                \"nama\": \"RS CAHYA KAWALUYAAN - KAB. BANDUNG BARAT\"\n            }\n        ]\n    }\n}"
+            }]
+        },
+        {
+            "name": "API Info Data Kepesertaan",
+            "event": [{
+                "listen": "prerequest",
+                "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                        "var timestamp = Math.floor(Date.now()/1000);",
+                        "var signature = CryptoJS.HmacSHA256(pm.environment.get(\"consid\") + \"&\" + timestamp, pm.environment.get(\"secretkey\"));",
+                        "signature = CryptoJS.enc.Base64.stringify(signature);",
+                        "",
+                        "pm.environment.set(\"timestamp\", timestamp);",
+                        "pm.environment.set(\"signature\", signature);"
+                    ]
+                }
+            }],
+            "request": {
+                "method": "GET",
+                "header": [{
+                        "key": "X-cons-id",
+                        "value": "{{consid}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-timestamp",
+                        "value": "{{timestamp}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-signature",
+                        "value": "{{signature}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-Authorization",
+                        "value": " Basic OjowOTU=",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/Peserta/nokartu/0002051582769/tglSEP/2022-08-12",
+                    "protocol": "https",
+                    "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                    "path": [
+                        "hackaton",
+                        "Peserta",
+                        "nokartu",
+                        "0002051582769",
+                        "tglSEP",
+                        "2022-08-12"
+                    ]
+                }
+            },
+            "response": [{
+                "name": "API Info Data Kepesertaan",
+                "originalRequest": {
+                    "method": "GET",
+                    "header": [{
+                            "key": "X-cons-id",
+                            "value": " 1000",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-timestamp",
+                            "value": " 1663905795",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-signature",
+                            "value": " qEWRZPDQprAhaAVqh5UVMMVG3jEvEPW1aVz4euAEQDw=",
+                            "type": "text"
+                        },
+                        {
+                            "key": "X-Authorization",
+                            "value": " Basic OjowOTU=",
+                            "type": "text"
+                        }
+                    ],
+                    "url": {
+                        "raw": "https://dvlp.bpjs-kesehatan.go.id/hackaton/Peserta/nokartu/0002051582769/tglSEP/2022-08-12",
+                        "protocol": "https",
+                        "host": ["dvlp", "bpjs-kesehatan", "go", "id"],
+                        "path": [
+                            "hackaton",
+                            "Peserta",
+                            "nokartu",
+                            "0002051582769",
+                            "tglSEP",
+                            "2022-08-12"
+                        ]
+                    }
+                },
+                "status": "OK",
+                "code": 200,
+                "_postman_previewlanguage": "json",
+                "header": [{
+                        "key": "Cache-Control",
+                        "value": "private"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json; charset=utf-8"
+                    },
+                    {
+                        "key": "Server",
+                        "value": "Microsoft-IIS/8.5"
+                    },
+                    {
+                        "key": "X-AspNet-Version",
+                        "value": "4.0.30319"
+                    },
+                    {
+                        "key": "Date",
+                        "value": "Fri, 23 Sep 2022 04:08:01 GMT"
+                    },
+                    {
+                        "key": "Content-Length",
+                        "value": "766"
+                    },
+                    {
+                        "key": "Set-Cookie",
+                        "value": "f5avraaaaaaaaaaaaaaaa_session_=GIDBJGNJBBDLLINDOAKNELGDPADANDABEGDNLPABKLMEKJAILGFABEHBGKJPFFDIOCJDBINCGADHFJKPLIKAOHNNNDPDANEJBKJMKKNEFJIADILKFLAGAHHHCBGIHJAH; HttpOnly; secure"
+                    }
+                ],
+                "cookie": [],
+                "body": "{\n    \"metaData\": {\n        \"code\": \"200\",\n        \"message\": \"OK\"\n    },\n    \"response\": {\n        \"peserta\": {\n            \"cob\": {\n                \"nmAsuransi\": null,\n                \"noAsuransi\": null,\n                \"tglTAT\": null,\n                \"tglTMT\": null\n            },\n            \"hakKelas\": {\n                \"keterangan\": \"KELAS I\",\n                \"kode\": \"1\"\n            },\n            \"informasi\": {\n                \"dinsos\": null,\n                \"noSKTM\": null,\n                \"prolanisPRB\": null\n            },\n            \"jenisPeserta\": {\n                \"keterangan\": \"PNS DAERAH\",\n                \"kode\": \"3\"\n            },\n            \"mr\": {\n                \"noMR\": \"1003\",\n                \"noTelepon\": \"121313131\"\n            },\n            \"nama\": \"RIF'ATIL FARIHAH\",\n            \"nik\": \"3172014506810014\",\n            \"noKartu\": \"0002051582769\",\n            \"pisa\": \"1\",\n            \"provUmum\": {\n                \"kdProvider\": \"0113B002\",\n                \"nmProvider\": \"KLINIK ARDITA CIRACAS\"\n            },\n            \"sex\": \"P\",\n            \"statusPeserta\": {\n                \"keterangan\": \"AKTIF\",\n                \"kode\": \"0\"\n            },\n            \"tglCetakKartu\": \"2016-05-11\",\n            \"tglLahir\": \"1981-06-05\",\n            \"tglTAT\": \"2033-02-27\",\n            \"tglTMT\": \"2016-04-14\",\n            \"umur\": {\n                \"umurSaatPelayanan\": \"41 tahun ,2 bulan ,7 hari\",\n                \"umurSekarang\": \"41 tahun ,3 bulan ,18 hari\"\n            }\n        }\n    }\n}"
+            }]
+        }
+    ]
+}

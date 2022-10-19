@@ -59,7 +59,7 @@ class DimensionSeeder extends Seeder
 
         $hospitals = [
             [
-                'name' => 'RSUP Dr. Wahidin Sudirohusodo',
+                'name' => 'RS Ibnu Sina Makassar',
                 'rate' => 5,
                 'reviewer' => 20,
                 'phone' => '(0411) 583333',
