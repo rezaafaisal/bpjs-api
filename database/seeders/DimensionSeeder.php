@@ -6,6 +6,8 @@ use App\Models\Gender;
 use App\Models\Service;
 use App\Models\Hospital;
 use App\Models\HospitalService;
+use App\Models\Polyclinic;
+use App\Models\Rate;
 use App\Models\ServiceCategory;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -28,68 +30,77 @@ class DimensionSeeder extends Seeder
             ['name' => 'ultrasonografi'],
             ['name' => 'intensive care unit '],
         ];
-
-        $service = [
+        
+        $polyclinics = [
             [
-                'service_category_id' => 1,
+                
                 'name' => 'poli gigi',
                 'image' => 'poli_gigi.png',
             ],
             [
-                'service_category_id' => 1,
                 'name' => 'poli gizi',
                 'image' => 'poli_gizi.png',
             ],
             [
-                'service_category_id' => 1,
                 'name' => 'poli penyakit dalam',
                 'image' => 'poli_penyakit.png',
             ],
             [
-                'service_category_id' => 1,
                 'name' => 'poli bedah umum',
                 'image' => 'poli_bedah.png',
             ],
             [
-                'service_category_id' => 1,
                 'name' => 'poli mata',
                 'image' => 'poli_mata.png',
+            ],
+        ];
+
+        $service = [
+            [
+                'polyclinic_id' => 1,
+                'hospital_id' => 1,
+                'rate' => 4.5
+            ],
+            [
+                'polyclinic_id' => 1,
+                'hospital_id' => 2,
+                'rate' => 5
+            ],
+            [
+                'polyclinic_id' => 1,
+                'hospital_id' => 3,
+                'rate' => 3
+            ],
+            [
+                'polyclinic_id' => 1,
+                'hospital_id' => 4,
+                'rate' => 1
             ],
         ];
 
         $hospitals = [
             [
                 'name' => 'RS Ibnu Sina Makassar',
-                'rate' => 5,
-                'reviewer' => 20,
                 'phone' => '(0411) 583333',
                 'address' => 'Jl. Perintis Kemerdekaan No.11 Tamalanrea Jaya'
             ],
             [
                 'name' => 'RSUD Haji Makassar',
-                'rate' => 4.3,
-                'reviewer' => 20,
                 'phone' => '(0411) 856090',
                 'address' => 'Jl. Daeng Ngeppe No.14 Balang Baru Kec. Tamalate'
             ],
             [
                 'name' => 'RSUD Labuang Baji',
-                'rate' => 4.3,
-                'reviewer' => 20,
                 'phone' => '(0411) 873482',
                 'address' => 'Jl. Dr. Ratulangi No.81 Labuang Baji Kec. Mamajang'
             ],
             [
                 'name' => 'RS Akademis Jaury',
-                'rate' => 4.3,
-                'reviewer' => 20,
                 'phone' => '(0411) 317343',
                 'address' => 'Jl. Jend. M. Jusuf No.57A Pattunuang Kec. Wajo'
             ],
             [
                 'name' => 'RS Bhayangkara Makassar',
-                'rate' => 4.3,
-                'reviewer' => 20,
                 'phone' => '(0411) 317343',
                 'address' => 'Jl. Andi Mappaodang No.63 Jongaya Kec. Tamalate'
             ],
@@ -99,22 +110,22 @@ class DimensionSeeder extends Seeder
             [
                 'service_id' => 1,
                 'hospital_id' => 1,
-                'rating' =>  2
+                'rate' =>  2
             ],
             [
                 'service_id' => 2,
                 'hospital_id' => 1,
-                'rating' =>  4
+                'rate' =>  4
             ],
             [
                 'service_id' => 3,
                 'hospital_id' => 1,
-                'rating' =>  3
+                'rate' =>  3
             ],
             [
                 'service_id' => 4,
                 'hospital_id' => 1,
-                'rating' =>  5
+                'rate' =>  5
             ],
         ];
 
@@ -123,10 +134,50 @@ class DimensionSeeder extends Seeder
             ['name' => 'perempuan'],
         ];
 
+        $rates = [
+            [
+                'patient_id' => 1,
+                'service_id' => 1,
+                'hospital_id' => 1,
+                'rate' => 5,
+                'comment' => 'Wah ini sangat baik'
+            ],
+            [
+                'patient_id' => 2,
+                'service_id' => 1,
+                'hospital_id' => 1,
+                'rate' => 5,
+                'comment' => 'Lumayan bang'
+            ],
+            [
+                'patient_id' => 3,
+                'service_id' => 1,
+                'hospital_id' => 1,
+                'rate' => 3,
+                'comment' => 'pen kesini lagi nih bang'
+            ],
+            [
+                'patient_id' => 4,
+                'service_id' => 1,
+                'hospital_id' => 1,
+                'rate' => 2,
+                'comment' => 'ini rumah sakit?'
+            ],
+            [
+                'patient_id' => 5,
+                'service_id' => 1,
+                'hospital_id' => 1,
+                'rate' => 4,
+                'comment' => 'Aowkowkwo iseng'
+            ],
+        ];
+
         Gender::insert($gender);
-        ServiceCategory::insert($service_category);
+        // ServiceCategory::insert($service_category);
+        Polyclinic::insert($polyclinics);
         Service::insert($service);
         Hospital::insert($hospitals);
         HospitalService::insert($hospital_service);
+        Rate::insert($rates);
     }
 }

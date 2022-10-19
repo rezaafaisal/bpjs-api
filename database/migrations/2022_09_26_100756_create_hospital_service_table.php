@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('hospital_service', function (Blueprint $table) {
             $table->foreignId('hospital_id');
             $table->foreignId('service_id');
-            $table->integer('rating')->nullable();
+            $table->integer('rate')->nullable();
             $table->bigInteger('reviewer')->nullable();
             $table->bigInteger('star_1')->nullable();
             $table->bigInteger('star_2')->nullable();

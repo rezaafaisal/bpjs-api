@@ -16,4 +16,8 @@ class Patient extends Model
     public function queue(){
         return $this->hasMany(Queue::class);
     }
+
+    public function rates(){
+        return $this->hasMany(Rate::class);
+    }
 }

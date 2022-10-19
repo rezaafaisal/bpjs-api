@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_category_id');
-            $table->string('name');
-            $table->string('image');
+            $table->foreignId('polyclinic_id');
+            $table->foreignId('hospital_id');
+            $table->double('rate');
         });
     }
 

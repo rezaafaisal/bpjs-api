@@ -10,6 +10,11 @@ class Hospital extends Model
     use HasFactory;
 
     public function services(){
-        return $this->belongsToMany(Service::class, 'hospital_service', 'service_id', 'hospital_id');
+        return $this->hasMany(Services::class);
+        // return $this->belongsToMany(Service::class);
+    }
+
+    public function rates(){
+        return $this->hasMany(Rate::class);
     }
 }
