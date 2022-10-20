@@ -9,6 +9,9 @@ class Service extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+    public $timestamps = false;
+
     public function hospitals(){
         return $this->belongsToMany(Hospital::class);
     }

@@ -85,9 +85,9 @@ class QueueController extends Controller
 
         if(!$queue || !$timetable) return Response::reply(false, 500, 'Gagal');
 
-        // return Response::reply(true, 200, 'Data antrian '.Patient::find($patient_id)->name.' berhasil ditambahkan', $queue);
+        return Response::reply(true, 200, 'Data antrian '.Patient::find($req->patient_id)->name.' berhasil ditambahkan', $queue);
 
-        return response()->json($queue, 200);
+        // return response()->json($queue, 200);
         
     }
 
@@ -97,7 +97,7 @@ class QueueController extends Controller
         ]);
 
         if(!$queue) return Response::reply(false, 500, 'Tidak berhasil');
-        // return Response::reply(true, 200, 'Berhasil', $queue);
-        return response()->json($queue, 200);
+        return Response::reply(true, 200, 'Berhasil', $queue);
+        // return response()->json($queue, 200);
     }
 }
