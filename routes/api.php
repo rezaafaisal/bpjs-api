@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\HospitalController;
+use App\Http\Controllers\Api\QueueController;
+use App\Http\Controllers\Api\RateController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,8 +28,11 @@ Route::get('rumah-sakit/{polyclinic_id}', [HospitalController::class, 'index']);
 
 Route::get('dokter/{service_id}', [HospitalController::class, 'doctors']);
 Route::get('dokter/waktu/{doctor_id}', [HospitalController::class, 'timetables']);
-Route::get('antrian/{patient_id}', [HospitalController::class, 'queues']);
 
-Route::post('antri/{patient_id}/{service_id}/{doctor_id}/{timetable_id}', [HospitalController::class, 'addQueue']);
-Route::put('antri/{queue_id}', [HospitalController::class, 'doneQueue']);
+// antrian
+Route::get('antri/{patient_id}', [QueueController::class, 'queues']);
+Route::post('antri', [QueueController::class, 'addQueue']);
+Route::put('antri/{queue_id}', [QueueController::class, 'doneQueue']);
 
+// rating
+Route::post('ulas/{queue_id}', [RateController::class, 'rate']);
