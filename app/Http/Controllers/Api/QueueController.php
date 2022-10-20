@@ -8,6 +8,8 @@ use App\Helpers\Response;
 use App\Models\Timetable;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\LiveOrder;
+use App\Models\Service;
 
 class QueueController extends Controller
 {
@@ -15,8 +17,9 @@ class QueueController extends Controller
         $patient = Patient::find($patient_id);
         $data = Queue::where('patient_id', $patient_id)->get()->map(function($row){
             return [
-                'id' => str($row->id)->toString(),
-                'layanan' => $row->service->name,
+                'id' => $row->id,
+                'pasien' => $row->patient->name,
+                'layanan' => $row->service->polyclinic->name,
                 'nama_dokter' =>  $row->doctor->name,
                 'hari' => $row->timetable->day,
                 'mulai_jam' => $row->timetable->start,
@@ -39,8 +42,44 @@ class QueueController extends Controller
             'doctor_id' => 'required|integer',
             'timetable_id' => 'required|integer',
         ]);
-        $queue = Queue::create($req->all());
 
+        // cek apakah sudah memiliki antrian
+        if(Queue::where(['patient_id' => $req->patient_id, 'service_id' => $req->service_id, 'status' => 'wait'])->first()){
+            return Response::reply(false, 400, 'anda telah mengambil antrian :)');
+        }
+
+        // tambah antrian terbaru di tabel live order
+        $order = LiveOrder::where('service_id', $req->service_id)->first();
+        if(!$order){
+            $order = LiveOrder::create(['service_id' => $req->service_id,'current' => 1]);
+        }
+        else{
+            $order->update(['current' => $order->current + 1]);
+        }
+
+
+        // data nomor antrian di queue
+        $order_number = Service::find($req->service_id)->polyclinic->code;
+        if($order->current < 10){
+            $order_number .= '00'.$order->current;
+        }
+        else if($order->current > 9 && $order->current < 100){
+            $order_number .= '0'.$order->current;
+        }
+        else{
+            $order_number .= $order->current;
+        }
+        
+        $data = [
+            'patient_id' => $req->patient_id,
+            'service_id' => $req->service_id,
+            'doctor_id' => $req->doctor_id,
+            'timetable_id' => $req->timetable_id,
+            'order_number' => $order_number
+        ];
+
+        $queue = Queue::create($data);
+        
         // mengurangi kuota
         $timetable = Timetable::where('id', $req->timetable_id)->update(['quota' => Timetable::find($req->timetable_id)->quota - 1]);
 

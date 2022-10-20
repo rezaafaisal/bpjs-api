@@ -74,9 +74,51 @@ class FactSeeder extends Seeder
                 'max_quota' => 10,
                 'quota' => 8,
             ],
+            [
+                'doctor_id' => 2, 
+                'day' => 'Selasa',
+                'start' => '08:00',
+                'until' => '12:00',
+                'max_quota' => 10,
+                'quota' => 2,
+            ],
+            [
+                'doctor_id' => 2, 
+                'day' => 'Rabu',
+                'start' => '08:00',
+                'until' => '12:00',
+                'max_quota' => 10,
+                'quota' => 9,
+            ],
+            [
+                'doctor_id' => 3, 
+                'day' => 'Selasa',
+                'start' => '08:00',
+                'until' => '12:00',
+                'max_quota' => 10,
+                'quota' => 1,
+            ],
         ];
 
+        $patients = [
+            [
+                'gender_id' => 1,
+                'name' => 'reza faisal',
+                'nik' => '7401182802020001',
+                'card_num' => '12345678',
+                'birthday' => '2002-02-28'
+            ],
+            [
+                'gender_id' => 1,
+                'name' => 'muhammad asdar',
+                'nik' => '8201182802020001',
+                'card_num' => '65432112',
+                'birthday' => '2001-09-10'
+            ],
+        ];
+        
         Doctor::insert($doctors);
         Timetable::insert($timetables);
+        Patient::insert($patients);
     }
 }

@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('queues', function (Blueprint $table) {
+        Schema::create('live_orders', function (Blueprint $table) {
             $table->id();
-            $table->string('order_number');
-            $table->foreignId('patient_id');
-            $table->foreignId('doctor_id');
-            $table->foreignId('timetable_id');
             $table->foreignId('service_id');
-            $table->boolean('is_reviewed')->nullable()->default(false);
-            $table->enum('status', ['wait', 'done', 'fail'])->default('wait');
+            $table->integer('current');
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('queues');
+        Schema::dropIfExists('live_orders');
     }
 };

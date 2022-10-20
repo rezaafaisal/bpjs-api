@@ -21,60 +21,32 @@ class DimensionSeeder extends Seeder
      */
     public function run()
     {
-        $service_category = [
-            ['name' => 'poliklinik'],
-            ['name' => 'unit gawat darurat (UGD)'],
-            ['name' => 'instalasi gawat darurat (iGD)'],
-            ['name' => 'radiologi'],
-            ['name' => 'apotek'],
-            ['name' => 'ultrasonografi'],
-            ['name' => 'intensive care unit '],
-        ];
-        
         $polyclinics = [
             [
                 
                 'name' => 'poli gigi',
                 'image' => 'poli_gigi.png',
+                'code' => 'A',
             ],
             [
                 'name' => 'poli gizi',
                 'image' => 'poli_gizi.png',
+                'code' => 'B',
             ],
             [
                 'name' => 'poli penyakit dalam',
                 'image' => 'poli_penyakit.png',
+                'code' => 'C',
             ],
             [
                 'name' => 'poli bedah umum',
                 'image' => 'poli_bedah.png',
+                'code' => 'D',
             ],
             [
                 'name' => 'poli mata',
                 'image' => 'poli_mata.png',
-            ],
-        ];
-
-        $service = [
-            [
-                'polyclinic_id' => 1,
-                'hospital_id' => 1,
-                'rate' => 4.5
-            ],
-            [
-                'polyclinic_id' => 1,
-                'hospital_id' => 2,
-                'rate' => 5
-            ],
-            [
-                'polyclinic_id' => 1,
-                'hospital_id' => 3,
-                'rate' => 3
-            ],
-            [
-                'polyclinic_id' => 1,
-                'hospital_id' => 4,
-                'rate' => 1
+                'code' => 'E',
             ],
         ];
 
@@ -106,78 +78,27 @@ class DimensionSeeder extends Seeder
             ],
         ];
 
-        $hospital_service = [
-            [
-                'service_id' => 1,
-                'hospital_id' => 1,
-                'rate' =>  2
-            ],
-            [
-                'service_id' => 2,
-                'hospital_id' => 1,
-                'rate' =>  4
-            ],
-            [
-                'service_id' => 3,
-                'hospital_id' => 1,
-                'rate' =>  3
-            ],
-            [
-                'service_id' => 4,
-                'hospital_id' => 1,
-                'rate' =>  5
-            ],
-        ];
+        $services = [];
+        for ($i=1; $i <= 5; $i++) { 
+            for ($j=1; $j <= 5 ; $j++) {
+                array_push($services, 
+                [
+                    'polyclinic_id' => $i,
+                    'hospital_id' => $j,
+                    'rate' => rand(1, 5)
+                ]);
+            }
+        }
 
         $gender = [
             ['name' => 'laki laki'],
             ['name' => 'perempuan'],
         ];
 
-        $rates = [
-            [
-                'patient_id' => 1,
-                'service_id' => 1,
-                'hospital_id' => 1,
-                'rate' => 5,
-                'comment' => 'Wah ini sangat baik'
-            ],
-            [
-                'patient_id' => 2,
-                'service_id' => 1,
-                'hospital_id' => 1,
-                'rate' => 5,
-                'comment' => 'Lumayan bang'
-            ],
-            [
-                'patient_id' => 3,
-                'service_id' => 1,
-                'hospital_id' => 1,
-                'rate' => 3,
-                'comment' => 'pen kesini lagi nih bang'
-            ],
-            [
-                'patient_id' => 4,
-                'service_id' => 1,
-                'hospital_id' => 1,
-                'rate' => 2,
-                'comment' => 'ini rumah sakit?'
-            ],
-            [
-                'patient_id' => 5,
-                'service_id' => 1,
-                'hospital_id' => 1,
-                'rate' => 4,
-                'comment' => 'Aowkowkwo iseng'
-            ],
-        ];
 
         Gender::insert($gender);
-        // ServiceCategory::insert($service_category);
         Polyclinic::insert($polyclinics);
-        Service::insert($service);
+        Service::insert($services);
         Hospital::insert($hospitals);
-        HospitalService::insert($hospital_service);
-        Rate::insert($rates);
     }
 }
