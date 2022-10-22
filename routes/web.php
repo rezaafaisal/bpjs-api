@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function(){
-   return "halo";
-});
-// Route::get('/', [AdminController::class, 'index'])->name('dashboard');
-// Route::get('verifikasi/{queue_id}', [AdminController::class, 'done'])->name('done');
+// Route::get('/', function(){
+//    return "halo";
+// });
+Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+Route::get('verifikasi/{queue_id}', [AdminController::class, 'done'])->name('done');
