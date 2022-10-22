@@ -8,6 +8,7 @@ use App\Models\Hospital;
 use App\Models\HospitalService;
 use App\Models\Polyclinic;
 use App\Models\Rate;
+use App\Models\Role;
 use App\Models\ServiceCategory;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -21,6 +22,11 @@ class DimensionSeeder extends Seeder
      */
     public function run()
     {
+        $roles = [
+            ['name' => 'admin'],
+            ['name' => 'patient']
+        ];
+        
         $polyclinics = [
             [
                 
@@ -96,6 +102,7 @@ class DimensionSeeder extends Seeder
         ];
 
 
+        Role::insert($roles);
         Gender::insert($gender);
         Polyclinic::insert($polyclinics);
         Service::insert($services);

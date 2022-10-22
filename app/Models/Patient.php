@@ -28,4 +28,8 @@ class Patient extends Model
     public function rates(){
         return $this->hasMany(Rate::class);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

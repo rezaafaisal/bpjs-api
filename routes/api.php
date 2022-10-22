@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\HospitalController;
 use App\Http\Controllers\Api\QueueController;
 use App\Http\Controllers\Api\RateController;
@@ -21,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// autentikasi
+Route::post('login', [AuthController::class, 'login']);
 
 Route::get('pengguna', [UserController::class, 'index']);
 Route::get('layanan', [HospitalController::class, 'service']);

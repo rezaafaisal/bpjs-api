@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use App\Models\Doctor;
 use App\Models\Patient;
 use App\Models\Timetable;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class FactSeeder extends Seeder
 {
@@ -18,7 +20,7 @@ class FactSeeder extends Seeder
     public function run()
     {
         // Patient::factory(20)->create();
-
+        $passwd = Hash::make('passwd');
         $doctors = [
             [
                 'hospital_id' => 1,
@@ -100,23 +102,52 @@ class FactSeeder extends Seeder
             ],
         ];
 
+        $users = [
+            [
+                'role_id' => 2,
+                'name' => fake()->name(),
+                'nik' => fake()->numerify('################'),
+                'password' => $passwd
+            ],
+            [
+                'role_id' => 2,
+                'name' => fake()-> name,
+                'nik' => fake()->numerify('################'),
+                'password' => $passwd
+            ],
+            [
+                'role_id' => 2,
+                'name' => fake()->name(),
+                'nik' => fake()->numerify('################'),
+                'password' => $passwd
+            ],
+            [
+                'role_id' => 1,
+                'name' => 'Indah Deana',
+                'nik' => '124315645678123457',
+                'password' => $passwd
+            ]
+        ];
+
         $patients = [
             [
                 'gender_id' => 1,
-                'name' => 'reza faisal',
-                'nik' => '7401182802020001',
-                'card_num' => '12345678',
+                'user_id' => 1,
                 'birthday' => '2002-02-28'
             ],
             [
                 'gender_id' => 1,
-                'name' => 'muhammad asdar',
-                'nik' => '8201182802020001',
-                'card_num' => '65432112',
+                'user_id' => 2,
                 'birthday' => '2001-09-10'
+            ],
+            [
+                'gender_id' => 1,
+                'user_id' => 3,
+                'birthday' => '2003-02-19'
             ],
         ];
         
+        User::insert($users);
         Doctor::insert($doctors);
         Timetable::insert($timetables);
         Patient::insert($patients);
