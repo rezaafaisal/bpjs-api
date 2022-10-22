@@ -18,5 +18,10 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function(){
 //    return "halo";
 // });
+
+// Verifikasi antrian
 Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 Route::get('verifikasi/{queue_id}', [AdminController::class, 'done'])->name('done');
+
+// review
+Route::get('ulasan', [AdminController::class, 'review'])->name('review');

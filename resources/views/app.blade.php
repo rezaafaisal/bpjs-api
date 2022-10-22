@@ -19,8 +19,9 @@
         }
 
     </script>
+    {{-- @vite('resources/css/app.css') --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.10.4/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/alpinejs@3.10.4/dist/cdn.min.js"></script>
 </head>
 
 <body class="bg-gray-100">

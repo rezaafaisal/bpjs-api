@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\Alert;
+use App\Models\Rate;
 use App\Helpers\View;
 use App\Models\Queue;
+use App\Helpers\Alert;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,6 +16,14 @@ class AdminController extends Controller
             'data' => Queue::all()
         ];
         return view('index', $data);
+    }
+
+    public function review(){
+        $data = [
+            'active' => 'review',
+            'data' => Rate::all()
+        ];
+        return view('review', $data);
     }
 
     public function done($queue_id){

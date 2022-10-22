@@ -2,7 +2,7 @@
 @section('body')
     <div class="px-7">
         <h2 class="mt-5 font-medium text-xl text-blue-700">
-            Verifikasi Antrian Pasien
+            Ulasan Pasien
         </h2>
         <div class="mt-10">
             <div class="bg-white p-4 rounded-lg shadow">
@@ -10,21 +10,19 @@
                     <thead class="bg-slate-100">
                         <tr class="border-b-2">
                             <th class="p-3 rounded-tl text-start font-medium">No</th>
-                            <th class="text-start font-medium">Nomor Antrian</th>
-                            <th class="text-start font-medium">Nama Lengkap</th>
-                            <th class="text-start font-medium">NIK</th>
-                            <th class="text-start font-medium">Status</th>
-                            <th class="text-start rounded-tr font-medium">Aksi</th>
+                            <th class="text-start font-medium">Layanan</th>
+                            <th class="text-start font-medium">Rating</th>
+                            <th class="text-start font-medium">Komentar</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y">
                         @foreach ($data as $i => $item)
                             <tr>
                                 <td class="p-3">{{ $i+1 }}</td>
-                                <td class="text-sm">{{ $item->order_number }}</td>
-                                <td class="text-sm">{{ $item->patient->user->name }}</td>
-                                <td class="text-sm">{{ $item->patient->user->nik }}</td>
-                                <td class="text-sm">
+                                <td class="text-sm">{{ $item->service->polyclinic->name }}</td>
+                                <td class="text-sm">{{ $item->rate }}</td>
+                                <td class="text-sm">{{ $item->comment }}</td>
+                                {{-- <td class="text-sm">
                                     <span class="block-inline px-2 py-1 rounded font-medium {{ ($item->status == 'done') ? 'bg-sky-200 text-sky-500' : 'bg-orange-200 text-orange-500' }}">{{ $item->status }}</span></td>
                                 <td>
                                     <div class="flex gap-2 items-center">
@@ -36,7 +34,7 @@
 
                                         @endif
                                     </div>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>

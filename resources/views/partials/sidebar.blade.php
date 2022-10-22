@@ -9,24 +9,24 @@
             <div class="text-sm">Customer Service</div>
         </div>
         <hr class="mt-3">
-        <ul class="flex flex-col gap-4 mt-4">
+        <ul class="flex flex-col gap-4 mt-4" x-data="{active: '{{ $active }}'}">
             <li>
-                <a href=""
-                    class="block rounded text-purple font-medium p-2 w-full bg-white hover:bg-white hover:text-purple duration-150">
+                <a href="{{ route('dashboard') }}"
+                   :class="(active == 'verifikasi') ? 'bg-white text-purple' : 'text-white bg-purple'" class="block rounded  font-medium p-2 w-full  hover:bg-white hover:text-purple duration-150 border-2 border-white">
                     <i class="fa-solid fa-check-to-slot mr-2 text-lg"></i>
                     <span>Antrian</span>
                 </a>
             </li>
             <li>
                 <a href=""
-                    class="block rounded p-2 w-full border-2 text-white font-medium border-white hover:bg-white hover:text-purple duration-150">
+                    :class="(active == 'dokter') ? 'bg-white text-purple' : 'text-white bg-purple'" class="block rounded p-2 w-full border-2 text-white font-medium border-white hover:bg-white hover:text-purple duration-150">
                     <i class="fa-solid fa-user-doctor text-lg mr-2"></i>
                     <span>Dokter</span>
                 </a>
             </li>
             <li>
-                <a href=""
-                    class="block rounded p-2 w-full border-2 text-white font-medium border-white hover:bg-white hover:text-purple duration-150">
+                <a href="{{ route('review') }}"
+                    :class="(active == 'review') ? 'bg-white text-purple' : 'text-white bg-purple'" class="block rounded p-2 w-full border-2 text-white font-medium border-white hover:bg-white hover:text-purple duration-150">
                     <i class="fa-solid fa-star text-lg mr-2"></i>
                     <span>Ulasan</span>
                 </a>
