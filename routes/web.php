@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+Route::get('verifikasi/{queue_id}', [AdminController::class, 'done'])->name('done');

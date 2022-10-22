@@ -2,11 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\View;
+use App\Models\Queue;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function index(){
-        return view('index');
+        $data = [
+            'active' => 'verifikasi',
+            'data' => Queue::all()
+        ];
+        return view('index', $data);
+    }
+
+    public function done($queue_id){
+        $queue = Queue::where('id', $queue_id)->update([
+            'status' => 'done'
+        ]);
+
+        if($queue) return redirect()->back();
+
     }
 }
