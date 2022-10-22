@@ -122,6 +122,18 @@ class FactSeeder extends Seeder
                 'password' => $passwd
             ],
             [
+                'role_id' => 2,
+                'name' => 'Balmond',
+                'nik' => '12345',
+                'password' => $passwd
+            ],
+            [
+                'role_id' => 2,
+                'name' => 'Argus',
+                'nik' => '54321',
+                'password' => $passwd
+            ],
+            [
                 'role_id' => 1,
                 'name' => 'Indah Deana',
                 'nik' => '7201182902020001',
@@ -145,6 +157,18 @@ class FactSeeder extends Seeder
             [
                 'gender_id' => 1,
                 'user_id' => 3,
+                'bpjs_number' => '33333333',
+                'birthday' => '2003-02-19'
+            ],
+            [
+                'gender_id' => 1,
+                'user_id' => 4,
+                'bpjs_number' => '33333333',
+                'birthday' => '2003-02-19'
+            ],
+            [
+                'gender_id' => 1,
+                'user_id' => 5,
                 'bpjs_number' => '33333333',
                 'birthday' => '2003-02-19'
             ],
