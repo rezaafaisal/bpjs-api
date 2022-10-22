@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Alert;
 use App\Helpers\View;
 use App\Models\Queue;
 use Illuminate\Http\Request;
@@ -21,7 +22,10 @@ class AdminController extends Controller
             'status' => 'done'
         ]);
 
-        if($queue) return redirect()->back();
+        if($queue) {
+            Alert::alert_success('Berhasil', 'Pasien berhasil di verifikasi');
+            return redirect()->back();
+        }
 
     }
 }
