@@ -105,20 +105,20 @@ class FactSeeder extends Seeder
         $users = [
             [
                 'role_id' => 2,
-                'name' => fake()->name(),
-                'nik' => fake()->numerify('################'),
+                'name' => 'Muhammad Asdar',
+                'nik' => '12345',
                 'password' => $passwd
             ],
             [
                 'role_id' => 2,
-                'name' => fake()-> name,
-                'nik' => fake()->numerify('################'),
+                'name' => 'Adhiet Firmasnyah',
+                'nik' => '7235483764',
                 'password' => $passwd
             ],
             [
                 'role_id' => 2,
-                'name' => fake()->name(),
-                'nik' => fake()->numerify('################'),
+                'name' => 'Reza Faisal',
+                'nik' => '834759875',
                 'password' => $passwd
             ],
             [
@@ -133,19 +133,19 @@ class FactSeeder extends Seeder
             [
                 'gender_id' => 1,
                 'user_id' => 1,
-                'bpjs_number' => fake()->numerify('##########'),
+                'bpjs_number' => '1111111',
                 'birthday' => '2002-02-28'
             ],
             [
                 'gender_id' => 1,
                 'user_id' => 2,
-                'bpjs_number' => fake()->numerify('##########'),
+                'bpjs_number' => '22222222',
                 'birthday' => '2001-09-10'
             ],
             [
                 'gender_id' => 1,
                 'user_id' => 3,
-                'bpjs_number' => fake()->numerify('##########'),
+                'bpjs_number' => '33333333',
                 'birthday' => '2003-02-19'
             ],
         ];
