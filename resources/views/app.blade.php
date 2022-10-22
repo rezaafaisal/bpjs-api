@@ -6,22 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pelayanan BPJS</title>
-    @vite('resources/css/app.css')
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            purple: "#1F469F",
-                        }
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purple: "#1F469F",
                     }
                 }
             }
+        }
 
-        </script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script defer src="https://unpkg.com/alpinejs@3.10.4/dist/cdn.min.js"></script>
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.10.4/dist/cdn.min.js"></script>
 </head>
 
 <body class="bg-gray-100">

@@ -20,6 +20,7 @@ class QueueController extends Controller
                 'pasien' => $row->patient->user->name,
                 'nomor_kartu' => $row->patient->bpjs_number,
                 'nomor_antrian' => $row->order_number,
+                'tanggal_lahir' => $row->patient->birthday,
                 'nik' => $row->patient->user->nik,
                 'rumah_sakit' => $row->service->hospital->name,
                 'layanan' => $row->service->polyclinic->name,
