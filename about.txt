@@ -1,2 +1,3 @@
-table :
-hospital 
+admin :
+
+Kelola waktu dokter : pilih poliklinik -> pilih dokter -> tentukan hari -> tentukan jadwal -> tentukan max quota

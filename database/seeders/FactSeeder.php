@@ -133,16 +133,19 @@ class FactSeeder extends Seeder
             [
                 'gender_id' => 1,
                 'user_id' => 1,
+                'bpjs_number' => fake()->numerify('##########'),
                 'birthday' => '2002-02-28'
             ],
             [
                 'gender_id' => 1,
                 'user_id' => 2,
+                'bpjs_number' => fake()->numerify('##########'),
                 'birthday' => '2001-09-10'
             ],
             [
                 'gender_id' => 1,
                 'user_id' => 3,
+                'bpjs_number' => fake()->numerify('##########'),
                 'birthday' => '2003-02-19'
             ],
         ];

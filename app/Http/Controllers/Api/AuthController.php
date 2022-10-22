@@ -29,6 +29,7 @@ class AuthController extends Controller
                             'id' => $user->patient->id,
                             'name' => $user->name,
                             'nik' => $user->nik,
+                            'bpjs_number' => $user->patient->bpjs_number,
                             'birthday' => $user->patient->birthday,
                             'gender' => $user->patient->gender->name,
                             'token' => $user->token

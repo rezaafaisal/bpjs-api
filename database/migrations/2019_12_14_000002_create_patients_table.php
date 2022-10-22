@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('gender_id');
+            $table->string('bpjs_number');
             $table->date('birthday');
             $table->timestamps();
         });
