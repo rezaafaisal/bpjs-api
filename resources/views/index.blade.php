@@ -1,6 +1,6 @@
 @extends('app')
 @section('body')
-    <div class="wrapper">
+    <div class="px-7">
         <h2 class="mt-5 font-medium text-xl text-blue-700">
             Verifikasi Antrian Pasien
         </h2>
