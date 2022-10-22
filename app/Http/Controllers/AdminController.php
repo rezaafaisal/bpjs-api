@@ -28,7 +28,7 @@ class AdminController extends Controller
 
     public function done($queue_id){
         $queue = Queue::where('id', $queue_id)->update([
-            'status' => 'wait'
+            'status' => 'done'
         ]);
 
         if($queue) {
