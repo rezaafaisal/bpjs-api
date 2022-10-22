@@ -14,11 +14,10 @@ use App\Models\Service;
 class QueueController extends Controller
 {
     public function queues($patient_id){
-        $patient = Patient::find($patient_id);
         $data = Queue::where('patient_id', $patient_id)->get()->map(function($row){
             return [
                 'id' => $row->id,
-                'pasien' => $row->patient->name,
+                'pasien' => $row->patient->user->name,
                 'nomor_kartu' => $row->patient->bpjs_number,
                 'nomor_antrian' => $row->order_number,
                 'nik' => $row->patient->user->nik,

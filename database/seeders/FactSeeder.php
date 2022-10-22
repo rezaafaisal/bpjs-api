@@ -106,25 +106,25 @@ class FactSeeder extends Seeder
             [
                 'role_id' => 2,
                 'name' => 'Muhammad Asdar',
-                'nik' => '12345',
+                'nik' => '7306060408010001',
                 'password' => $passwd
             ],
             [
                 'role_id' => 2,
                 'name' => 'Adhiet Firmasnyah',
-                'nik' => '7235483764',
+                'nik' => '7306070407010001',
                 'password' => $passwd
             ],
             [
                 'role_id' => 2,
                 'name' => 'Reza Faisal',
-                'nik' => '834759875',
+                'nik' => '7401182802020001',
                 'password' => $passwd
             ],
             [
                 'role_id' => 1,
                 'name' => 'Indah Deana',
-                'nik' => '124315645678123457',
+                'nik' => '7201182902020001',
                 'password' => $passwd
             ]
         ];
