@@ -36,4 +36,8 @@ class Service extends Model
         return $this->hasMany(Rate::class);
     }
 
+    public function doctors(){
+        return $this->hasMany(Doctor::class);
+    }
+
 }

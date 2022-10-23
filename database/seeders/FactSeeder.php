@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Doctor;
+use App\Models\Officer;
 use App\Models\Patient;
 use App\Models\Timetable;
 use Illuminate\Database\Seeder;
@@ -106,19 +107,19 @@ class FactSeeder extends Seeder
             [
                 'role_id' => 2,
                 'name' => 'Muhammad Asdar',
-                'nik' => '7306060408010001',
+                'nik' => '60200119029',
                 'password' => $passwd
             ],
             [
                 'role_id' => 2,
                 'name' => 'Adhiet Firmasnyah',
-                'nik' => '7306070407010001',
+                'nik' => '60200119060',
                 'password' => $passwd
             ],
             [
                 'role_id' => 2,
                 'name' => 'Reza Faisal',
-                'nik' => '7401182802020001',
+                'nik' => '60200119075',
                 'password' => $passwd
             ],
             [
@@ -136,7 +137,7 @@ class FactSeeder extends Seeder
             [
                 'role_id' => 1,
                 'name' => 'Indah Deana',
-                'nik' => '7201182902020001',
+                'nik' => '60200119010',
                 'password' => $passwd
             ]
         ];
@@ -173,10 +174,20 @@ class FactSeeder extends Seeder
                 'birthday' => '2003-02-19'
             ],
         ];
+
+        $officer = [
+            [
+                'user_id' => 6,
+                'hospital_id' => 1
+            ]
+        ];
+
+
         
         User::insert($users);
         Doctor::insert($doctors);
         Timetable::insert($timetables);
         Patient::insert($patients);
+        Officer::insert($officer);
     }
 }

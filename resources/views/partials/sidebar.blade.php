@@ -18,7 +18,7 @@
                 </a>
             </li>
             <li>
-                <a href=""
+                <a href="{{ route('doctor') }}"
                     :class="(active == 'dokter') ? 'bg-white text-purple' : 'text-white bg-purple'" class="block rounded p-2 w-full border-2 text-white font-medium border-white hover:bg-white hover:text-purple duration-150">
                     <i class="fa-solid fa-user-doctor text-lg mr-2"></i>
                     <span>Dokter</span>
@@ -33,7 +33,7 @@
             </li>
         </ul>
       </div>
-      <a href=""
+      <a href="{{ route('logout') }}"
           class="block rounded p-2 w-full border-2 text-white font-medium border-white hover:bg-white hover:text-purple duration-150">
           <i class="fa-solid fa-arrow-right-from-bracket text-lg mr-2"></i>
           <span>Keluar</span>

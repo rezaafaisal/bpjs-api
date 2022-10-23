@@ -17,4 +17,8 @@ class Hospital extends Model
     public function rates(){
         return $this->hasMany(Rate::class);
     }
+
+    public function officer(){
+        return $this->hasOne(Officer::class);
+    }
 }
